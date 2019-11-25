@@ -1,0 +1,213 @@
+% \documentclass[aps,11pt,citeautoscript,reprint]{revtex4-1}
+\documentclass[aps,twocolumn,10pt,reprint]{revtex4}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epsf}
+\usepackage{subfigure}
+\usepackage{epstopdf}
+\usepackage{color}
+\usepackage{subeqnarray}
+\usepackage{mathrsfs}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=red, citecolor=blue, urlcolor=blue]{hyperref}
+
+
+
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ben}{\begin{eqnarray}}
+\newcommand{\een}{\end{eqnarray}}
+\newcommand{\bra}[1]{\langle #1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\braket}[2]{\langle #1|#2\rangle}
+\newcommand{\mean}[1]{\langle{#1}\rangle}
+\newcommand{\dg}{\dagger}
+\newcommand{\bsen}{\begin{subeqnarray}}
+\newcommand{\esen}{\end{subeqnarray}} 
+\newcommand{\rr}{\mathscr{R}}
+\newcommand{\pr}{\partial}
+\newcommand{\rta}{\rightarrow}
+\newcommand{\lta}{\leftarrow}
+\newcommand{\ep}{\epsilon}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\p}{\prime}
+\newcommand{\om}{\omega}
+% \newcommand{\ra}{\rangle}
+% \newcommand{\la}{\langle}
+% \newcommand{\td}{\tilde}
+% \newcommand{\dg}{\dagger}
+\newcommand{\mo}{\mathcal{O}}
+\newcommand{\ml}{\mathcal{L}}
+\newcommand{\mathp}{\mathcal{P}}
+\newcommand{\mq}{\mathcal{Q}}
+\newcommand{\ms}{\mathcal{S}}
+\newcommand{\llra}{\longleftrightarrow}
+\newcommand{\nl}{$\newline$}
+\newcommand{\nll}{$\newline\newline$}
+%\newcommand{\dg}{\dagger}
+
+\newcommand{\Fa}{F\left[\begin{array}{c|c} x & x^\p \\ t+\Delta t & t \end{array} \right]}
+\newcommand{\Fb}{F\left[\begin{array}{c|c} x_t & x_0 \\ t & t_0 \end{array} \right]}
+\newcommand{\Fby}{F\left[\begin{array}{c|c} y_t & y_0 \\ t & t_0 \end{array} \right]}
+
+\begin{document}
+
+%\title{A simple explanation of the observed long coherence effects by 2D photon echo %experiments in photosynthetic EET: TCPS  model}
+
+
+\title{Network Analysis of Batting Partnerships in Cricket}
+
+
+\author{Nisarg Patel | 201501134}
+\affiliation{Dhirubhai Ambani Institute of Information \& Communication Technology, Gandhinagar, Gujarat 382007, India\\ IT-454, Introduction to Complex Networks}
+\author{Aayush Agrawal | 201501139}
+\affiliation{Dhirubhai Ambani Institute of Information \& Communication Technology, Gandhinagar, Gujarat 382007, India\\ IT-454, Introduction to Complex Networks}
+
+
+\begin{abstract}
+
+This paper applies the network methods for analyzing the interaction between the members of a team. Here we take into account the interaction of batting partnerships in International Cricket Matches. We took help of the paper\cite{1} and implemented it to get the different results mentioned in it. We calculate various network parameters for this network as studied\cite{2} and find out the behaviour of the network. We generate the batting partnership network for each country and apply centrality measures to deduce inferences like the players that participate the most in partnerships, not necessarily are the most important or central players and the most central players may not have the highest batting average. We try to differentiate eras of players by community detection method and find out the roles played by each of the player in the team. 
+
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+Cricket is an outdoor sports game played between two teams in which each team has 11 players. Cricket is played on a mostly circular ground having a pitch of 20 metres and with a wicket at each end each comprising 2 bails balanced on 3 stumps. Each match comprises on two innings. The objective of the game is simple, a team should score more number of runs than its opposition while the opposite teams restricting the score and dismissing the batsmen. There are 3 prominent forms of cricket - 'Test', 'One Day International' and 'T20 International'\cite{3}. In this paper, we take the network for Test cricket because it is considered as the highest standard of cricket. Each test match is played for 4 or 5 days. It if the longest format of the game, played for more than 140 years. Each match comprises of 4 innings, two innings per team. In each innings batsmen try to score as many runs as possible within their quota of 10 wickets and after the end of 4 innings, the team with maximum number of runs wins the match. 
+
+In this paper we consider the Test matches played by the top six historical teams- India, South Africa, England, New Zealand, Australia, West Indies. All renowned cricket team have different approach to their game-play, batting line-up and bowling order. Teams like Australia and England depends on fast bowlers while subcontinental teams like India or West Indies depend on slow bowlers. In this paper we apply tools to understand the importance of each player within a team and the methods of link formation between the batsmen.
+
+Thus, even though cricket is a team sport, we analyze an individual player's effect on the game and team dynamics based on its interaction with other players of the team. We apply network analysis on such set of interactions which lead to formation of a connected network, primarily batting partnership interactions in a team.  
+
+\section{Network Construction}
+We analyze the data of batting partnership (available from cricinfo website\cite{4}) in Test cricket between 1877 and June 2018. Two batsmen are connected if they formed a batting partnership in at least one match. An undirected and unweighted batting partnership network is generated for each country. Also to note that partnership networks are always restricted to countries. Two batsmen of different countries do not bat together.
+
+\section{Analysis of Network}
+In this section we analyze the batting partnership as a complex network of interaction of two batsmen. We calculate various measures for network analysis for the top countries. The results are shown as table in Fig.(\ref{Fig:1}). We observe that the average degree of all the teams are similar except South Africa. Degree is one of the centrality measures of the network. It reflects how many partnerships a batsmen is involved in. So if a batsmen has high betweenness centrality it would mean that he/she is vital to hold partnerships. However, if degree centrality of such a batsmen is less, the number of such partnerships would be less. This would result in the team being uneven since number of important partnerships are less. We can deduce that a team with high betweenness to average degree ratio could have too dependence on some player. On average, India's ratio for the entire dataset comes to be 0.0006, however during 1995 - 2004, it comes out to be 0.0022 which may highlight a high dependence on some players rather than a whole team near 2000s.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width = 3.3 in]{1.PNG}~
+\caption{Networks measures for different teams.}
+\label{Fig:1}
+\end{figure}
+
+\newpage
+The degree distributions of top teams are shown in Fig.(\ref{Fig:2}). From this, we can see that the degree distribution neither follows a normal curve, nor a power law. We can also see that the degree distribution of South Africa decays faster as compared to other countries. That is because, South Africa faced was banned from international cricket from 1971 to 1991. Thus players were not able to form partnerships with new players more frequently than compared to other team.
+
+The clustering coefficient($C_i$) of a node $i$ is defined as ratio of number of links shared by its neighboring nodes to the maximum number of possible links among them. The average clustering coefficient($C$) of a network is the mean of clustering coefficients of all the nodes. The average clustering coefficient captures the global density of interconnected nodes in a network. We can see from \ref{Fig:1} that all of the countries have nearly same value of clustering coefficient($\approx 0.60$). This indicates that the networks are highly clustered. We generated an Erdos-Renly random graph\cite{5} ($G(n,p)$) with average number of nodes($n=388$) and average number of edges($m=2529$). Thus the probability of an edge between two vertices:
+
+\be \label{eq:1}
+p=\frac{2m}{n(n-1)}
+\ee
+
+Thus we get from Eq.(\ref{eq:1}) $p=0.034$. Thus generating the random graph $G(n, p)$, we see that the correlation coefficient($C=0.03$) is very lower than the original network.
+
+The assortativity coefficient($A$) measures the tendency of a network to connect vertices with the same or different degrees. If $A>0(A<0)$ the network is said to be assortative (disassortative). It has been observed that social networks are assortative and technological and biological networks are disassortative. We find that all the countries have A$\approx -0.10$ indicating the weak disassortativity of the batting partnership networks.
+
+We evaluate the average shortest path length $L$ between a given node and all other nodes of the network. We observe that the average shortest path length of these networks are of the same order of the random graph generated by the ER model (L = 2.62). Thus the networks display small-world properties.
+
+From Fig(\ref{Fig:3}), it is visible that 'A Ward' of England has the highest betweenness centrality however, it has lowest of averages and degree among the others who have high betweenness. On the other hand Sir DG Bradman who has the highest average does not have the highest betweenness. Thus, it is not necessary that a player's centrality and batting average be proportional. Concluding this we can state that involving in important partnerships does not convert to higher batting averages and so runs in a partnership cannot be equally weighted edges. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width = 3.5 in]{2.PNG}~
+\caption{Degree Distributions for different teams.}
+\label{Fig:2}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width = 3.50 in]{5.PNG}~
+\caption{Betweenness centrality sorted player statistics.}
+\label{Fig:3}
+\end{figure}
+
+\textbf{Community Structures and Roles:}
+
+Communities are groups of nodes are more densely connected to each other than the remaining of the network. Thus communities in a network are the densely connected within the group and sparsely connect between different groups.
+
+We perform the communitity detection based on the Girvan-Newman algorithm.
+The Girvan-Newman algorithm detects communities by progressively removing edges from the original network. The connected components of the remaining network are the communities. Instead of trying to construct a measure that tells us which edges are the most central to communities, the Girvan–Newman algorithm focuses on edges that are most likely "between" communities.
+But it also runs slowly, taking time $O(m^2n)$ on a network of 'n' vertices and 'm' edges, making it impractical for networks of more than a few thousand nodes
+
+We found 4 communities in the giant component (GC) of the BPN for various teams. Table in Fig.(\ref{Fig:4}) shows the mean batting averages of each communities along with the 95$\%$ confidence interval of each community for each team. We find that most of the 95$\%$ confidence intervals of each communities for a country overlap meaning that there is no statistically significant difference in the mean bating average between communities. We get the most important players of each community by calculating the within-community degree z-score\cite{6} given by the following equation:
+
+\be \label{eq:2}
+z_i=\frac{k_i-k_{s_i}}{\sigma_{k_{s_i}}}
+\ee
+
+where $k_i$ is the number of edges of node $i$ to other nodes in its community $s_i$, $k_{s_i}$ is the average of $k_i$ over all of the nodes in $s_i$ and $\sigma_{k_{s_i}}$ is the standard deviation
+of $k_i$ in $s_i$. Next we distinguish nodes based on their connections to nodes belonging to different communities. As defined in Ref. \cite{6}, the participation coefficient $P_i$ of a node $i$ is given as
+
+\be \label{eq:3}
+P_i=1-\sum_{s=1}^{M}\Big(\frac{k_{i_s}}{\sigma_{k_i}}\Big)^2
+\ee
+
+where $k_{i_s}$ is is the number of links of node $i$ to nodes in community $s$ and $k_i$ is the degree of the node $i$. And then, based on the $z$-score we identify the hubs
+and non-hub nodes. If $z \geq 2.5$ the nodes are classified as hubs while non-hubs are identified with $z \leq 2.5$. The hubs and non-hubs are further classified based on the participation coefficient $P$.
+Non-hubs are divided into four roles :
+\begin{itemize}
+    \item (R1) "ultra peripheral nodes" - Nodes with all their edges within their community ($P \leq 0.05$)
+    \item (R2) "peripheral nodes" - Nodes with most of their links within their community ($0.05 < P \leq 0.62$)
+    \item (R3) "non-hub connector nodes" - Nodes with many links to other community ($0.62 < P \leq 0.80$)
+    \item (R4) "non-hub kinless nodes" - Nodes with links homogeneously distributed among all communities ($P > 0.80$)
+\end{itemize}
+Hubs are divided into three roles :
+\begin{itemize}
+    \item (R5) "provincial hubs" - Hub nodes with majority of edges within their community ($P \leq 0.30$)
+    \item (R6) "connector hubs" - Hub nodes with many connections to most of other communities ($0.30 < P \leq 0.75$)
+    \item (R7) "kinless hubs" - Hub nodes with links homogeneously distributed among all communities ($P > 0.75$)
+\end{itemize}
+
+We apply the role-classification approach to the communities detected from Girvan-Newman’s algorithm. For each player in the BPNs of different teams we calculate the within-community degree $z_i$ and $P_i$. We computed the categories for Indian players. We found that there are no players who fall in the category of 'R3', 'R4' and 'R7'. There are only 6 players in hubs category. Out of which only "Sachin Tendulkar" is the connector hub of India. From England 5 players are from the connector hub and the legendary batsman Don Bradman of Australia is not a connector hub. Thus most of the connector hubs are the batsman playing at various positions and having a long career. Thus the roles played by a batsman in the network gives us an idea about the batting position of the player.
+
+\section{Conclusions}
+To summarize, we studied the network properties of batting partnership network of different teams in the history of test cricket(1877-2018). We found that the batting partnership network displays small world properties and are weakly dissassortative. We also found out that the player with high average is not necessarily the player with high betweenness or degree. We found out the communities within the network using Girvan-Newman for each country and mathematically derived the important players in each community of the team. We also found out the roles played by various node within a network and its role in the game.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width = 6.8 in]{6.PNG}~
+\caption{Community roles and prominent players}
+\label{Fig:4}
+\end{figure}
+
+
+\newpage
+\begin{figure}[!h]
+\centering
+\includegraphics[width = 3.5 in]{3.png}~
+\caption{All players' batting partnership network. The dense black clouds represent each team. You can find some of these dense clouds connected. This is due to the fact that some cricketers have played for different countries thus connecting them.}
+\label{Fig:5}
+\end{figure}
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width = 3.5 in]{4.png}~
+\caption{The batting partnership network for all Indian players}
+\label{Fig:6}
+\end{figure}
+
+
+\begin{thebibliography}{}
+\bibitem{1} S. Mukherjee {\it Complex Network Analysis in Cricket : Community structure, player's role and performance index}, 2012
+\bibitem{2} M.E.J. Newman, {\it Networks: An Introduction}, Oxford University Press, 2012
+\bibitem{3} \url{http://www.icc-cricket.com}
+\bibitem{4} \url{http://www.espncricinfo.com}
+\bibitem{5} P. Erdos and A. Renyi. On the evolution of random graphs. Math. Inst. Hung. Acad.Sci. 5, 7 (1960)
+\bibitem{6} R. Guimer`a, L. Amaral J. Stat. Mech.: Theor. Exp. P02001 1-13 (2005)
+
+
+
+\end{thebibliography}
+
+\end{document}
